@@ -143,6 +143,10 @@ function s:BufSurfDelete(bufnr)
         return
     endif
 
+    if !exists('w:history_index')
+        return
+    endif
+
     " Remove the buffer from all window histories.
     call filter(w:history, 'v:val !=' . a:bufnr)
 
